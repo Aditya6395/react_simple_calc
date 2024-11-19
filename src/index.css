@@ -1,0 +1,158 @@
+/* Global Styles */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Teal and Blue gradient */
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+}
+
+/* Centering Calculator Container */
+.calculator {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  transition: all 0.5s ease;
+  margin: auto; /* Ensure calculator is centered */
+}
+
+/* Hover effect on calculator */
+.calculator:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Display Screen */
+.display {
+  background: #f7f7f7; /* Light grey background */
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  font-size: 2rem;
+  padding: 15px;
+  text-align: right;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 330px; /* Align width with buttons */
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.display:focus {
+  box-shadow: 0 0 10px #00bfae, 0 0 20px #00bfae; /* Teal glow */
+}
+
+/* Keypad Styles */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 330px; /* Align buttons with the display width */
+}
+
+/* Calculator Button Styles */
+.key {
+  background: #e8f5e9; /* Light greenish tint */
+  color: #388e3c; /* Dark green for text */
+  border: none;
+  padding: 18px;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Ripple Effect */
+.key::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.key:active::after {
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0;
+}
+
+/* Hover and Active States */
+.key:hover {
+  background: #00bfae; /* Teal on hover */
+  color: white;
+  transform: translateY(-2px);
+}
+
+.key:active {
+  background: #009688; /* Darker teal on active */
+  color: white;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Special Button Styles for operators and clear buttons */
+.key:nth-child(1),
+.key:nth-child(2),
+.key:nth-child(3),
+.key:nth-child(4) {
+  background: #ff7043; /* Coral for special buttons */
+  color: white;
+  font-weight: bold;
+}
+
+.key:nth-child(1):hover,
+.key:nth-child(2):hover,
+.key:nth-child(3):hover,
+.key:nth-child(4):hover {
+  background: #f4511e; /* Slightly darker coral on hover */
+}
+
+.key:nth-child(1):active,
+.key:nth-child(2):active,
+.key:nth-child(3):active,
+.key:nth-child(4):active {
+  background: #d84315; /* Even darker coral on active */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .display {
+    font-size: 1.6rem;
+    padding: 12px;
+  }
+
+  .key {
+    padding: 15px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator {
+    max-width: 300px;
+  }
+
+  .keypad {
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,170 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container Styles */
+.calculator {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff; /* White background for the calculator */
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow for modern look */
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the entire calculator */
+.calculator:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+/* Input Field Styles */
+.calculator input {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  font-size: 32px;
+  text-align: right; /* Right-align the numbers */
+  background-color: #f7f7f7; /* Light gray background for input */
+  color: #333; /* Dark gray text for input */
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.calculator input:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Focus effect with shadow */
+}
+
+/* Keypad (Buttons) Container */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/* Individual Button Styles */
+.calculator button {
+  padding: 20px;
+  font-size: 24px;
+  background-color: #fafafa; /* Light gray for buttons */
+  color: #333; /* Dark gray text */
+  border: 2px solid #ddd; /* Soft border */
+  border-radius: 50%; /* Circular buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.1s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  outline: none;
+}
+
+/* Button Hover Effect */
+.calculator button:hover {
+  background-color: #e0e0e0; /* Slightly darker gray on hover */
+  transform: scale(1.1); /* Enlarge a bit on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Vibrating Effect on Active Button */
+.calculator button:active {
+  background-color: #d1d1d1; /* Slightly darker on click */
+  transform: scale(0.95); /* Slight shrink effect */
+}
+
+/* Specific Styles for Operators and Special Buttons */
+.calculator button.operator {
+  background-color: #f1f1f1; /* Slightly darker for operators */
+  color: #333;
+}
+
+.calculator button.operator:hover {
+  background-color: #cccccc; /* Darker gray on hover for operators */
+}
+
+/* Clear (C) and Back (CE) Button Styles */
+.calculator button.clear, .calculator button.back {
+  background-color: #ffebee; /* Light red background for clear buttons */
+  color: #d32f2f; /* Red text */
+}
+
+.calculator button.clear:hover, .calculator button.back:hover {
+  background-color: #ffcdd2; /* Darker red on hover */
+}
+
+/* Equal Button Styles */
+.calculator button.equal {
+  background-color: #bbdefb; /* Light blue for equal button */
+  color: #1565c0; /* Dark blue text */
+  grid-column: span 2; /* Make equal button span two columns */
+}
+
+.calculator button.equal:hover {
+  background-color: #90caf9; /* Darker blue on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .calculator {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .calculator input {
+    font-size: 28px;
+    padding: 15px;
+  }
+
+  .calculator button {
+    padding: 18px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .calculator input {
+    font-size: 24px;
+    padding: 12px;
+  }
+
+  .calculator button {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  /* Adjust grid layout for mobile */
+  .keypad {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
+/* Keyframes for Vibrating Color Animation */
+@keyframes vibrateColor {
+  0% {
+    background-color: #f1f1f1;
+  }
+  25% {
+    background-color: #e3e3e3;
+  }
+  50% {
+    background-color: #d5d5d5;
+  }
+  75% {
+    background-color: #e3e3e3;
+  }
+  100% {
+    background-color: #f1f1f1;
+  }
+}
